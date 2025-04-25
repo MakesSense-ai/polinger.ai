@@ -1,0 +1,222 @@
+/* Workshops Section Styles */
+.workshops {
+    margin-top: 5rem;
+}
+
+.workshops-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.workshops-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.workshops-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--glow-blue), var(--neon-blue));
+}
+
+.workshops-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.workshop-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.workshop-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.workshop-image:hover img {
+    transform: scale(1.05);
+}
+
+.workshop-content {
+    padding: 1rem;
+}
+
+.workshop-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--bright-blue);
+}
+
+.workshop-features {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.workshop-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.feature-icon {
+    background: linear-gradient(135deg, var(--glow-blue), var(--neon-blue));
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feature-icon i {
+    color: var(--dark-blue);
+    font-size: 0.8rem;
+}
+
+.feature-text h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* AI Branding Academy */
+.ai-branding-academy {
+    margin-top: 4rem;
+    background: linear-gradient(135deg, rgba(23, 42, 69, 0.8), rgba(10, 25, 47, 0.9));
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 204, 255, 0.1);
+}
+
+.academy-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.academy-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--bright-blue);
+}
+
+.academy-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.academy-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.academy-cta {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--glow-blue), var(--neon-blue));
+    color: var(--dark-blue);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+    transition: all var(--transition-speed) ease;
+    margin-top: 1.5rem;
+    border: none;
+    text-decoration: none;
+}
+
+/* Hover effect */
+.academy-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.5);
+}
+
+/* Responsive styles for workshops and academy */
+@media (max-width: 992px) {
+    .workshops-container,
+    .academy-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .workshop-image,
+    .academy-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .workshop-content h3,
+    .academy-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .feature-text h4 {
+        font-size: 1.1rem;
+    }
+    
+    .workshops-header h2 {
+        font-size: 1.8rem;
+    }
+}
+        gap: 2rem;
+    }
+    
+    .workshop-image,
+    .academy-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* Specific styling for workshop button to prevent animation issues */
+.workshop-content a.primary-button {
+    position: relative;
+    overflow: visible;
+    z-index: 5;
+    display: inline-block;
+    background: linear-gradient(90deg, var(--glow-blue), var(--neon-blue));
+    color: var(--dark-blue);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+    transition: all var(--transition-speed) ease;
+    text-decoration: none;
+    border: none;
+}
+
+.workshop-content a.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.5);
+}
+
+/* Ensure no pseudo-elements are affecting this button */
+.workshop-content a.primary-button::before,
+.workshop-content a.primary-button::after {
+    display: none !important;
+}

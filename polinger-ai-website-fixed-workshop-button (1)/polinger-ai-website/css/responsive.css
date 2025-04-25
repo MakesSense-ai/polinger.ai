@@ -1,0 +1,279 @@
+/* Additional responsive and accessibility styles */
+
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--glow-blue);
+    color: var(--dark-blue);
+    padding: 8px;
+    z-index: 1001;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Form validation styles */
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.form-control.error {
+    border-color: #ff6b6b;
+}
+
+/* Focus styles for accessibility */
+:focus {
+    outline: 2px solid var(--glow-blue) !important;
+    outline-offset: 2px !important;
+}
+
+/* Mobile menu styles */
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 99;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.active {
+    display: flex;
+    transform: translateX(0);
+}
+
+.mobile-menu .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.mobile-menu .nav-links a {
+    font-size: 1.5rem;
+}
+
+.mobile-menu .cta-button {
+    margin-top: 2rem;
+}
+
+/* Enhanced responsive styles */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header mobile styles */
+    .nav-links, 
+    header .cta-button {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    /* Typography adjustments */
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    /* Section padding adjustments */
+    .section {
+        padding: 4rem 0;
+    }
+    
+    /* Contact section adjustments */
+    .contact-method {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .contact-icon {
+        margin: 0 auto 1rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Footer adjustments */
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Typography adjustments */
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Container padding adjustments */
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    /* Button adjustments */
+    .primary-button, 
+    .secondary-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Service card adjustments */
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    /* Portfolio adjustments */
+    .portfolio-image {
+        height: 180px;
+    }
+    
+    /* Form adjustments */
+    .form-control {
+        padding: 0.8rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    header, 
+    footer, 
+    .contact-form, 
+    .hero-cta, 
+    .social-links {
+        display: none;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    h1, h2, h3, p {
+        color: black;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .hero-image-container::before,
+    .hero-image-container::after,
+    .circuit-lines,
+    .hero-image-overlay {
+        display: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --glow-blue: #00ffff;
+        --bright-blue: #ffffff;
+        --neon-blue: #00ffff;
+    }
+    
+    body {
+        background-color: #000000;
+    }
+    
+    p, h1, h2, h3, h4, h5, h6 {
+        color: #ffffff;
+    }
+    
+    .service-card,
+    .methodology,
+    .contact-form {
+        background: #000000;
+        border: 2px solid #ffffff;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .hero-image-container::after,
+    .circuit-dot {
+        animation: none !important;
+    }
+}

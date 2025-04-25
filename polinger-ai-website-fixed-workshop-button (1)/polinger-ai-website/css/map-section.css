@@ -1,0 +1,142 @@
+/* Map Section Styles */
+.map-section {
+    background-color: rgba(10, 25, 47, 0.7);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+}
+
+.map-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glow-blue), transparent);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin: 2rem 0;
+    border: 1px solid rgba(0, 204, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 204, 255, 0.2);
+}
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(70%) invert(92%) hue-rotate(180deg) brightness(90%) contrast(85%);
+}
+
+.address-details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.address-item {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: linear-gradient(135deg, rgba(23, 42, 69, 0.8), rgba(10, 25, 47, 0.9));
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 204, 255, 0.1);
+    transition: all var(--transition-speed) ease;
+}
+
+.address-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--glow-blue);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 204, 255, 0.3);
+}
+
+.address-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--glow-blue), var(--neon-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+    flex-shrink: 0;
+}
+
+.address-icon i {
+    font-size: 1.3rem;
+    color: var(--dark-blue);
+}
+
+.address-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--bright-blue);
+}
+
+.address-content p {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Map overlay to add tech pattern */
+.map-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--tech-pattern);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Glowing border effect on hover */
+.map-container:hover {
+    border-color: var(--glow-blue);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 204, 255, 0.3);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .address-details {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .address-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        height: 300px;
+    }
+    
+    .address-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .address-icon {
+        margin-bottom: 1rem;
+    }
+}
